@@ -1,0 +1,209 @@
+:root{
+  --clr-primary: #000000;
+  --clr-pink: #fa6e98;
+  --clr-cyan: #00ffff;
+  --clr-gray: #D1D1D1;
+  --clr-blue: #3B3561;
+}
+
+
+/* Background colours */
+
+div#accordion article:nth-child(1) {
+  background: rgba(0, 0, 0, 0.7) url(../assets/minesa.jpg);
+  background-position: center;
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div#accordion article:nth-child(2) {
+  background: rgba(0, 0, 0, 0.7) url(../assets/janssen.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+div#accordion article:nth-child(3) {
+  background: rgba(0, 0, 0, 0.7) url(../assets/misionoro.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+
+
+/* Main layout */
+
+
+div#accordion{
+  width: 100vw;
+  height: 100vh;
+}
+
+div#accordion{
+  list-style: none;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+
+/* Articles */
+
+div#accordion article {
+  flex: initial;
+  width: 33.33333%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  vertical-align: bottom;
+  box-sizing: border-box;
+  padding: 2vh 1vw;
+  position: relative;
+}
+
+
+/* Hover interaction */
+
+div#accordion:hover article, div#accordion:active article {
+  flex: initial;
+  width: 20%;
+}
+
+div#accordion article:hover, div#accordion article:active {
+  width: 60%;
+}
+
+article > div {
+  opacity: 0;
+  transition: opacity .2s ease 0;
+}
+
+div#accordion article:hover > div, div#accordion article:active > div {
+  opacity: 1;
+  transition: opacity .3s ease .3s;
+  height: 100%;
+  scrollbar-width: thin; //Scrollbar Firefox
+  scrollbar-color: #fa6e98 rgba(#d1d1d1, 0.19); //Scrollbar Firefox
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+div#accordion article:hover > h2, div#accordion article:active > h2 {
+  opacity: 0;
+}
+
+/* Scrollbar Chrome Safari Opera*/
+div#accordion article:hover > div::-webkit-scrollbar {
+  width: 18px;
+}
+
+div#accordion article:hover > div::-webkit-scrollbar-track {
+  background-color: rgba(#d1d1d1, 0.19);
+  border-radius: 100px;
+}
+
+div#accordion article:hover > div::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+  background-color: #fa6e98;
+}
+
+
+/* navigation */
+
+div#accordion article > h2 {
+  bottom: 50vh;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  font-size: 2em;
+  transform: rotate(-90deg);
+  font-weight: 100;
+}
+
+
+/* Article layouts */
+
+article div {
+  text-align: left;
+  width: 58vw;
+}
+
+article div p,
+article div video,
+article div img,
+article div div h2{
+  margin: 1em 0.5em 1em 0;
+}
+
+#accordion article {
+  h3 {
+  text-align: right;
+  margin-right: 0.5em;
+  color: var(--clr-pink);
+  font-size: 4em;
+  }
+  h4{
+    font-weight: 100;
+    text-align: right;
+    color: var(--clr-cyan);
+  }
+  p{
+    font-weight: 100;
+    line-height: 1.5;
+    font-size: 2ch;
+  }
+  .credits{
+    text-align: right;
+    color: inherit;
+  }
+  .project-intro{
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  div#accordion{
+    flex-direction: column;
+    overflow: inherit;
+  }
+  div#accordion article {
+    padding: 2vh 3vw;
+    width: 100%;
+    height: 40%;
+  }
+  div#accordion article > h2 {
+    transform: rotate(90deg);
+    bottom: 23vh;
+    min-width: 12em;
+    text-align: left;
+    transform: rotate(-90deg);
+    transform-origin: 0 0 0;
+    opacity: 1;
+  }
+  div#accordion article:hover, div#accordion article:active {
+    width: 100%;
+    height: 100%;
+  }
+  div#accordion:hover article, div#accordion:active article {
+    width: 100%;
+  }
+  article div p {
+    width: 90vw;
+  }
+  article div {
+    width: 100%;
+  }
+}
