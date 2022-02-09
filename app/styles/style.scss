@@ -1,6 +1,6 @@
+@use 'navbar';
 @use 'accordion';
 @use 'cards';
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Roboto:ital,wght@0,100;0,400;0,900;1,100&display=swap');
 
 
 :root{
@@ -27,6 +27,22 @@ a{
   text-decoration: none;
   color: inherit;
 }
+a::before{
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0%;
+  background-color: #61DAFB;
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  margin: 0;
+}
+a:hover {
+    color: #61DAFB;
+}
+a:hover::before{
+    width: 80%;
+}
 
 body{
   background-color: var(--clr-primary);
@@ -41,12 +57,23 @@ body{
 
 /* Scrollbar Chrome Safari Opera*/
 body::-webkit-scrollbar {
-  width: 0;
+  width: 0!important;
+}
+
+.bootstrap-wrapper{
+  overflow: hidden;
 }
 
 .intro{
   background-color: var(--clr-primary);
   display: block;
+  .scroll-down{
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    opacity: 0.5;
+    width: 8pc;
+  }
   .intro-text-inner{
     position: relative;
     top:30vh;
@@ -58,22 +85,22 @@ body::-webkit-scrollbar {
       line-height: 0.7;
     }
     .title-right{
-      transform: translate(4rem, 0px);
+      transform: translate(6rem, 0px);
     }
     .intro-top{
-      transform: translate(0rem, -156px);
+      transform: translate(0rem, -150px);
       font-weight: 100;
       font-style: italic;
     }
     .intro-bottom{
-      transform: translate(258px, -32px);
+      transform: translate(255px, -25px);
       font-weight: 100;
       font-style: italic;
     }
     a {
       display: table;
       padding: 1em;
-      margin: auto;
+      margin: 10px auto;
       font-size: 1em;
       text-decoration: none;
       text-transform: uppercase;
@@ -132,15 +159,39 @@ body::-webkit-scrollbar {
   }
 }
 
+.clients {
+	margin: auto;
+  height: 120vh;
+	//height: calc(var(--cardH) * 36 - 1.5em);
+  z-index: 10;
+  padding: 10% 0 75% 0;
+	p{
+		padding: 100px;
+		text-align: right;
+		font-weight: 100;
+		font-size: 4ch;
+		font-style: italic;
+	}
+}
+
 .about-me{
-  margin-top: 100px;
+  padding: 10% 0 20% 0;
+  .row{
+    flex-direction: column;
+    align-items: flex-end;
+  }
   .about-intro{
     display: inline-flex;
     flex-direction: row;
     align-content: stretch;
     flex-wrap: wrap;
-    justify-content: flex-end;
-    margin: 0 0 8% 5%;
+    justify-content: flex-start;
+    margin: 0 5% 8% 0;
+    .slogan{
+      font-size: 4ch;
+      line-height: 1;
+      padding: 10% 5% 7% 0;
+    }
     h2, h3{
       position: relative;
       font-weight: bold;
@@ -153,27 +204,71 @@ body::-webkit-scrollbar {
       font-size: 2em;
     }
   }
+  .canada h2{
+    text-align: left;
+    padding-bottom: 10%;
+  }
   p{
-    text-align: right;
+    text-align: left;
     font-weight: 100;
     line-height: 1.5;
-    font-size: 2ch;
-    padding-left: 25%;
+    font-size: 2.3ch;
+    padding-right: 25%;
+    padding-bottom: 20px;
   }
   #totem{
-    position: relative;
+    position: absolute;
     min-height: 500px;
     height: 100vh;
+    inset: auto auto auto 0px!important;
     canvas{
-      width: 100%!important;
       height: 100%!important;
       position: absolute;
       top: 0;
       left: 0;
+      transition: none;
     }
   }
 }
 
+.contact-me{
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content-left{
+    -webkit-transform: translate3d(-100vh, 0, 0);
+    transform: translate3d(-200vh, 0, 0);
+  }
+  h2{
+    font-weight: bold;
+    font-size: 7em;
+    text-align: right;
+    line-height: 0.6;
+    padding: 30px;
+  }
+  .links{
+    text-align: left;
+    display: inline-grid;
+    padding: 30px;
+    font-weight: 100;
+    font-size: 2em;
+    align-items: center;
+    border-left-style: solid;
+    border-color: white;
+    border-width: 2px;
+    align-content: center;
+    line-height: 1.5;
+  }
+}
+
+footer{
+  border-top: solid rgb(250 110 152 / 30%);
+  text-align: center;
+  padding: 10px;
+  color: #999999;
+  z-index: 99;
+}
 
 .effect3d{
   text-shadow: -0.06em 0 var(--clr-pink),  0.06em 0 var(--clr-cyan); /* This creates the 3D effect, pretty easy, eh? */
@@ -190,7 +285,34 @@ body::-webkit-scrollbar {
   box-shadow: 0px 0px 5px #03e9f4, 0px 0px 25px #03e9f4, 0px 0px 50px #03e9f4, 0px 0px 100px #03e9f4;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
+.blue-btn::before{
+  content: none!important;
+}
 
+
+/* Animation */
+.slideInLeft {
+  -webkit-animation: slideInLeft 1s ease;
+  animation: slideInLeft 1s ease;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideInLeft {
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)!important;
+  }
+}
+
+@keyframes slideInLeft {
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)!important;
+  }
+}
+
+
+/* Responsive */
 
 @media screen and (max-width: 1100px){
   .intro{

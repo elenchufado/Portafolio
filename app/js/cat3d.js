@@ -1,10 +1,17 @@
 import * as THREE from 'three/build/three.module.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+//import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
+
+/*import * as THREE from 'https://unpkg.com/three@0.136.0/build/three.module.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.136.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.136.0/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'https://unpkg.com/three@0.136.0/examples/jsm/loaders/DRACOLoader.js';
+import { RectAreaLightHelper } from 'https://unpkg.com/three@0.136.0/examples/jsm/helpers/RectAreaLightHelper.js';
+import { RectAreaLightUniformsLib } from 'https://unpkg.com/three@0.136.0/examples/jsm/lights/RectAreaLightUniformsLib.js';*/
 
 
 /**3D Cat first Canvas**/
@@ -78,7 +85,7 @@ dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
 
 const loader = new GLTFLoader();
 loader.setDRACOLoader( dracoLoader );
-loader.load( 'assets/luckyCat/cat10.gltf', function ( gltf ) {
+loader.load( '/luckyCat/cat10.gltf', function ( gltf ) {
 
 	model = gltf.scene;
 	model.position.set( 0, 0, 0 ); //1,1,0

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lucky Cat - Maneki-neko, WIP
+* source:	https://sketchfab.com/3d-models/lucky-cat-maneki-neko-wip-4215b8d0c6fa49ca9a3d867ddb2111ba
+* author:	betalars (https://sketchfab.com/betalars)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lucky Cat - Maneki-neko, WIP" (https://sketchfab.com/3d-models/lucky-cat-maneki-neko-wip-4215b8d0c6fa49ca9a3d867ddb2111ba) by betalars (https://sketchfab.com/betalars) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

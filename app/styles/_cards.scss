@@ -9,32 +9,20 @@
 	--cardH: 15em;
 	--cardZInc: 2em;
 }
-.clients {
-	display: block;
-	margin: auto;
-	position: relative;
-  height: 120vh;
-	//height: calc(var(--cardH) * 36 - 1.5em);
-  z-index: 10;
-	p{
-		padding: 100px;
-		text-align: right;
-		font-weight: 100;
-		font-size: 4ch;
-		font-style: italic;
-	}
-}
+
 /* Grid */
 .cards, .stack {
 	transform-style: preserve-3d;
+	cursor: default;
 }
 .cards {
 	--scroll: 0;
 	display: grid;
-	grid-template: repeat(5, var(--cardH)) / var(--cardW);
+	grid-template: repeat(3, var(--cardH)) / repeat(3, var(--cardW));
+	//grid-template: repeat(3, var(--cardH)) / var(--cardW);
 	grid-gap: 1.5em;
-	transform: translateX(-70%) rotateX(45deg) rotateZ(45deg) translateY(var(--scroll));
-	transform-origin: -15%;
+	transform: translateX(5%) rotateX(45deg) rotateZ(45deg) translateY(var(--scroll));
+	transform-origin: 0%;
 }
 .stack {
 	display: block;
@@ -106,36 +94,45 @@
 
 /* Alter grid at breakpoints */
 @media screen and (max-width: 641px) {
+	:root {
+		--cardW: 11em!important;
+		--cardH: 11em!important;
+	}
 	.clients {
-		height: calc(var(--cardH)*4 - 1.5em);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.cards {
-		grid-template: repeat(3, var(--cardH)) / repeat(2, var(--cardW));
+		grid-template: repeat(4, var(--cardH)) / repeat(2, var(--cardW));
 		transform: translateX(0%) rotateX(20deg) rotateZ(0) translateY(0);
+		grid-gap: 0.5em;
 	}
 }
-@media screen and (min-width: 642px) {
+/*@media screen and (max-width: 642px) {
 	.clients {
 		//height: calc(var(--cardH) * 12 - 1.5em);
 	}
 	.cards {
 		grid-template: repeat(8, var(--cardH)) / repeat(3, var(--cardW));
 	}
-}
-@media screen and (min-width: 961px) {
+}*/
+@media screen and (max-width: 961px) {
+	:root {
+		--cardW: 10em;
+		--cardH: 10em;
+	}
 	.clients {
 		//height: calc(var(--cardH) * 9 - 1.5em);
 	}
-	.cards {
-		grid-template: repeat(8, var(--cardH)) / repeat(3, var(--cardW));
-	}
 }
-@media screen and (min-width: 1281px) {
+@media screen and (max-width: 1281px) {
 	.clients {
 		//height: calc(var(--cardH) * 8 - 1.5em);
 	}
 	.cards {
-		grid-template: repeat(8, var(--cardH)) / repeat(3, var(--cardW));
+		//grid-template: repeat(8, var(--cardH)) / repeat(3, var(--cardW));
 	}
 }
 

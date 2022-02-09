@@ -31,6 +31,7 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.outputEncoding = THREE.sRGBEncoding;
 container.appendChild( renderer.domElement );
+renderer.domElement.id = 'totemCanvas';
 
 //const pmremGenerator = new THREE.PMREMGenerator( renderer );
 
@@ -61,7 +62,7 @@ dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
 
 const loader = new GLTFLoader();
 loader.setDRACOLoader( dracoLoader );
-loader.load( 'assets/lantern2/scene.gltf', function ( gltf ) {
+loader.load( '/lantern2/scene.gltf', function ( gltf ) {
 
 	model = gltf.scene;
 	model.position.set( 0, 7, 0 ); //1,1,0
@@ -132,8 +133,8 @@ window.addEventListener('resize', () =>
 
 function render() {
 
-	camera.position.x += ( mouseX - camera.position.x ) * 1;
-	camera.position.y += ( - mouseY - camera.position.y ) * 1 + 13;
+	camera.position.x += ( mouseX - camera.position.x );
+	camera.position.y += ( - mouseY - camera.position.y ) + 13;
 	//camera.position.z += (mouseX - camera.position.z ) * 0.5 + 3;
 	camera.lookAt( scene.position );
 	renderer.render( scene, camera );

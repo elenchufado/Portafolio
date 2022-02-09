@@ -40,10 +40,7 @@ div#accordion article:nth-child(3) {
 
 div#accordion{
   width: 100vw;
-  height: 100vh;
-}
-
-div#accordion{
+  height: 85vh;
   list-style: none;
   position: relative;
   display: flex;
@@ -51,6 +48,8 @@ div#accordion{
   flex-wrap: nowrap;
   align-items: stretch;
   overflow: hidden;
+  -webkit-transform: translate3d(-100vh, 0, 0);
+  transform: translate3d(-100vh, 0, 0);
 }
 
 
@@ -121,7 +120,7 @@ div#accordion article:hover > div::-webkit-scrollbar-thumb {
 /* navigation */
 
 div#accordion article > h2 {
-  bottom: 50vh;
+  bottom: 35vh;
   position: absolute;
   text-align: center;
   width: 100%;
@@ -156,23 +155,27 @@ article div div h2{
   h4{
     font-weight: 100;
     text-align: right;
+    margin-right: 3em;
     color: var(--clr-cyan);
   }
   p{
     font-weight: 100;
-    line-height: 1.5;
-    font-size: 2ch;
+    font-size: 2.3ch;
   }
   .credits{
     text-align: right;
     color: inherit;
   }
   .project-intro{
-    display: inline-flex;
-    justify-content: flex-end;
     margin-bottom: 30px;
   }
+  a::before{
+    position: inherit;
+  }
 }
+
+
+/* Responsive */
 
 @media (max-width: 900px) {
   div#accordion{

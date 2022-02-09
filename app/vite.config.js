@@ -1,11 +1,7 @@
 module.exports = {
     root: './',
     build: {
-       outDir: 'dist',
+       outDir: 'dist/assets',
             },
-    publicDir: 'assets'
- }
-
- server: {
-   host: true
+    publicDir: 'assets/models'
  }
